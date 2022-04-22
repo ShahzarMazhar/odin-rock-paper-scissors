@@ -5,7 +5,10 @@
 }
 
 
-
+.container{
+    max-width: 1280px;
+    margin: auto;
+}
 svg{
     /* display: none; */
     /* height: 50px; */
@@ -40,6 +43,7 @@ overflow: hidden;
     z-index: 1;
     transition: 0.4s;
     top: 0;
+    left: 0;
     clip-path:circle(100%);
 }
 .start .start-box, .result .result-box{
