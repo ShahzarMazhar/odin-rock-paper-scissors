@@ -1,0 +1,271 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+svg{
+    /* display: none; */
+    /* height: 50px; */
+}
+
+.top-bar svg{
+    width: 75px;
+    height: 75px;
+    display: block;
+    /* outline: 1px solid red; */
+    border: 2px solid #313131;
+    border-radius: 50%;
+}
+
+body{
+ /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0000ff+0,ff0000+100 */
+background: rgb(0,0,255); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(0,0,255,0.5) 0%, rgba(255,0,0,0.5) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(0,0,255,0.5) 0%,rgba(255,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(0,0,255,0.5) 0%,rgba(255,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+height: 100vh;
+width: 100vw;
+overflow: hidden;
+}
+
+.start, .result{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1;
+    transition: 0.4s;
+    top: 0;
+    clip-path:circle(100%);
+}
+.start .start-box, .result .result-box{
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    border-radius: 5px;
+    padding: 2em;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: white;
+}
+input[type=text], input[type=radio] + label{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+    text-align: center;
+    border: 1px solid #313131;
+    outline: none;
+    font-size: 1.3rem;
+    transition: 0.2s;
+
+}
+
+input[type=text]:focus{
+    border-color: rgb(199, 70, 23);
+
+}
+.radioBtn{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+input[type=radio]{
+    display: none;
+}
+
+input[type=radio] + label{
+    cursor: pointer;
+}
+
+
+input[type=radio]:checked + label, input[type=radio] + label:hover{
+    color: rgb(199, 70, 23);
+    border-color: rgb(199, 70, 23);
+    transform: scale(1.1);
+
+}
+
+.start .start-box p{
+    margin-top: 0.5em;
+}
+.start .start-box input[type=submit], .result button{
+    margin-top: 1em;
+    width: 100%;
+    font-size: 2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(199, 70, 23);
+    color: white;
+    padding: 0.25em;
+    cursor: pointer;
+}
+
+.start .start-box input[type=submit]:hover{
+
+    background-color: rgb(233, 96, 47);
+}
+.top-bar{
+    /* height: 100px; */
+    /* background-color: white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar .candidate{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    flex-grow: 1;
+    flex-basis: 40%;
+    color: #313131;
+}
+
+#computer{
+    flex-direction: row-reverse;
+    text-align: right;
+
+}
+
+.top-bar .candidate .info{
+    padding: 1em;
+    flex-grow: 1;
+    position: relative;
+}
+
+.top-bar .score-bar{
+    border: 1px solid #313131;
+    height: 20px;
+    border-radius: 1em;
+    
+}
+
+.top-bar .candidate .info p{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.top-bar .candidate .info .score-progress{
+    background-color: blue;
+    height: 100%;
+    border-radius: inherit;
+    width: 100%;
+    transition: 0.5s;
+}
+
+#computer .score-progress{
+    float: right;
+    background-color: red;
+}
+
+#vs{
+    text-align: center;
+    background: rgb(0,0,255); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(0,0,255,0.5) 0%, rgba(255,0,0,0.5) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(0,0,255,0.5) 0%,rgba(255,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(0,0,255,0.5) 0%,rgba(255,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+    border-radius: 50%;
+    padding: 1.2em;
+    height: 90px;
+    width:90px;
+    color: white;
+    font-weight: 700;
+}
+.current-play{
+    display: flex;
+    height: 30vh;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: 0.2;
+}
+
+
+.current-play .icon{
+    opacity: 0;
+}
+
+.current-play.active .icon{
+    opacity: 1;
+}
+
+.current-play .current-result{
+    background-color: white;
+    padding: 0.3em 2em;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+    border: 2px solid #313131;
+
+}
+
+.current-play #computer-play svg{
+    float: right;
+}
+
+.next-play{
+    position: relative;
+    bottom: 0;
+    padding-left: 12%; /*to adjust the problem because of diff svg size*/
+    width: 50%;
+    margin: auto;
+    margin-top: 5em;
+    
+
+}
+
+.next-play svg{
+    transition: 0.3s;
+}
+.next-play svg{
+    cursor: pointer;
+}
+
+.next-play > :first-child{
+    /* position: absolute; */
+    transform: rotate(120deg) translate(30%, 90%);
+
+}
+.next-play > :last-child{
+    transform: rotate(-120deg) translate(70%, 180%);
+}
+
+.next-play svg.hover{
+    transform: scale(1.2);
+}
+
+.next-play > :first-child.hover{
+    /* position: absolute; */
+    transform: rotate(120deg) translate(30%, 90%) scale(1.2);
+
+}
+.next-play > :last-child.hover{
+    transform: rotate(-120deg) translate(70%, 180%) scale(1.2);
+}
+.result{
+    display: none;
+}
+
+.result.active{
+    display: block;
+}
+
+.result .score{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.result .score div > p{
+    padding: 0.5em;
+}
