@@ -46,6 +46,13 @@ function resetGame(){
 
 }
 
+function resetCurrentPlay(){
+    statusDisplay.innerText = "Let's Go!";
+    $('.current-play').classList.remove('active');
+    
+
+}
+
 function getResult(){
     if(gameData.target == gameData.computerScore || gameData.target == gameData.userScore){
 
@@ -73,8 +80,9 @@ function getTopper(){
         $('#vs .count').innerText = gameData.userScore;
         
     }else{$('#vs').style.backgroundColor = "";}
-    
-    getResult();
+
+
+    setTimeout(getResult, 500)
 }
 
 function updateUI(text){
@@ -183,11 +191,6 @@ gameInput.forEach(e => e.addEventListener('mouseenter', (e) => e.target.parentEl
 gameInput.forEach(e => e.addEventListener('mouseleave', (e) => e.target.parentElement.classList.remove("hover")));
 
 
-function resetCurrentPlay(){
-    statusDisplay.innerText = "Let's Go!";
-    $('.current-play').classList.remove('active');
-    
 
-}
 
 
