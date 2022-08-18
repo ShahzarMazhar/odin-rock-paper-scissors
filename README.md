@@ -1,6 +1,6 @@
 # Rock Paper Scissor
 
-First project of JavaScript again from [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors)
+First project of JavaScript [Rock Paper Scissors](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors), again from [The Odin Project](https://www.theodinproject.com)
 
 ## Learning Outcomes Summary
 
